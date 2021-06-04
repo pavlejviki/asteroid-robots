@@ -2,18 +2,23 @@
 
 
 ## Introduction
+
 HI! Thanks for applying to join Black Cow Technology. As part of the process we'd like you to complete this short take-home task. It shouldn't take very long, certainly not more than a few hours.
 
-Please treat this task as though it were a real project and do everything just as you normally would (think source control). 
+Please treat this task as though it were a real project and do everything just as you normally would (think source control).
+
 Additionally, please try to apply the principles of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) using [pytest](https://docs.pytest.org/en/latest/).
 
 
 ## Show Me The Robots!
-The European Space Agency (ESA) is planning to send some robots to an asteroid. The surface of the asteroid is represented as a rectangular two dimensional grid.
+
+The European Space Agency (ESA) is planning to send some robots to an asteroid.
+
+The asteroid is curiously rectangular.
 
 A robot's position on an asteroid is represented by a pair of co-ordinates and its current bearing. An example position might be (1, 3, South) which means that the robot is one mile East and three miles North of the asteroid's origin and is facing South.
 
-The co-ordinate of the position one place North of the asteroid's origin (0, 0) is (1, 0).
+The co-ordinate of the position one place North of the asteroid's origin (0, 0) is (0, 1).
 
 In order to control a robot, the ESA sends a series JSON messages, each one on a new line.
 
@@ -39,6 +44,7 @@ The other allowed values for `"movement"` are `"turn-right"` and `"move-forward"
 
 
 ## The Program
+
 Your program should consume a series of JSON commands provided in a text file, one line per command.
 
 Your program should output a series of JSON messages, each on a new line, describing the final positions of the robots after all of the input commands have been executed.
@@ -58,8 +64,11 @@ $ python robots.py instructions.txt
 
 ```
 
+Consideration should be given to the amount of memory used by the program. Additionally think about, and explain if necessary, how the program treats the boundaries of the asteroid.
+
 
 ## Worked example
+
 ### Input
 
 ```
