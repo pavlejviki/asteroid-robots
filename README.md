@@ -14,7 +14,7 @@ Additionally, please try to apply the principles of [test-driven development](ht
 
 The European Space Agency (ESA) is planning to send some robots to an asteroid.
 
-The asteroid is curiously rectangular.
+The surface of the asteroid is mapped to a rectangular grid.
 
 A robot's position on an asteroid is represented by a pair of co-ordinates and its current bearing. An example position might be (1, 3, South) which means that the robot is one mile East and three miles North of the asteroid's origin and is facing South.
 
@@ -64,7 +64,7 @@ $ python robots.py instructions.txt
 
 ```
 
-Consideration should be given to the amount of memory used by the program. Additionally think about, and explain if necessary, how the program treats the boundaries of the asteroid.
+Consideration should be given to the amount of memory used by the program. Additionally think about, and explain if necessary, how the program treats the boundaries of the grid representing the asteroid.
 
 
 ## Worked example
