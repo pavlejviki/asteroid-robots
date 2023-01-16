@@ -1,25 +1,49 @@
 import pytest
-from robot import Robot
+from robot import (
+    Robot,
+    Bearing,
+    Movement,
+    CommandType,
+)
 
 
 @pytest.fixture
 def robot():
-    robot = Robot(2, 2, "north", 5, 5)
+    robot = Robot(2, 2, Bearing.NORTH, 5, 5)
     return robot
 
 
 def test_robot_created_with_correct_initial_state(robot):
     assert robot.x == 2
     assert robot.y == 2
-    assert robot.bearing == "north"
+    assert robot.bearing == Bearing.NORTH
     assert robot.x_boundary == 5
     assert robot.y_boundary == 5
     assert isinstance(robot, Robot)
 
 
-def test_value_error_raised_when_initializing_x_y_coordinate_outside_boundary():
+@pytest.mark.parametrize(
+    "x, y, error_message",
+    [
+        (-1, 2, "Invalid x coordinate for robot, must be within boundaries"),
+        (6, 2, "Invalid x coordinate for robot, must be within boundaries"),
+        (2, -1, "Invalid y coordinate for robot, must be within boundaries"),
+        (2, 6, "Invalid y coordinate for robot, must be within boundaries"),
+    ],
+)
+def test_value_error_raised_when_initializing_x_y_coordinate_outside_boundary(x, y, error_message):
     with pytest.raises(
-        ValueError, match="Invalid x coordinate for robot, must be within boundaries"
+        ValueError, match=error_message
     ):
-        Robot(6, 2, "north", 5, 5)
+        Robot(x, y, Bearing.NORTH, 5, 5)
+
+
+def test_robot_moves_forward_correctly(robot):
+    robot.move(Movement.MOVE_FORWARD)
+    assert robot.x == 2
+    assert robot.y == 3
+    assert robot.bearing == Bearing.NORTH
+
+
+
 

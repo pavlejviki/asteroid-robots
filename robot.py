@@ -72,3 +72,7 @@ class Robot:
                 "Invalid y coordinate for robot, must be within boundaries"
             )
         self._y = value
+
+    def move(self, movement: Movement):
+        pass
+
