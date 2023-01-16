@@ -27,3 +27,8 @@ class Asteroid:
                 "Invalid y coordinate for the size of the asteroid, can't be negative"
             )
         self._size_y = value
+
+    def add_robot(self):
+        pass
+
+
