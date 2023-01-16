@@ -43,11 +43,16 @@ def generate_messages(asteroid: Asteroid) -> Generator[str, None, None]:
         yield json.dumps(robot_details)
 
 
+def print_messages(messages: Generator[str, None, None]) -> None:
+    for message in messages:
+        print(message)
+
+
 def main(instructions: str) -> None:
     commands = read_instructions(instructions)
     asteroid = execute_commands(commands)
-
-
+    messages = generate_messages(asteroid)
+    print_messages(messages)
 
 
 if __name__ == "__main__":

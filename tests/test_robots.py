@@ -24,12 +24,17 @@ def test_execute_commands_fulfils_commands_correctly():
     assert robot.bearing == Bearing.WEST
 
 
-@pytest.mark.parametrize("bearing, movement, command_type", [
-    ("invalid-bearing", "move", "move-forward"),
-    (Bearing.NORTH, "invalid-type", "move-forward"),
-    (Bearing.NORTH, "move", "invalid-movement"),
-])
-def test_execute_commands_raises_error_on_invalid_values(bearing, command_type, movement):
+@pytest.mark.parametrize(
+    "bearing, movement, command_type",
+    [
+        ("invalid-bearing", "move", "move-forward"),
+        (Bearing.NORTH, "invalid-type", "move-forward"),
+        (Bearing.NORTH, "move", "invalid-movement"),
+    ],
+)
+def test_execute_commands_raises_error_on_invalid_values(
+    bearing, command_type, movement
+):
     commands = [
         {"type": "new-asteroid", "size": {"x": 5, "y": 5}},
         {"type": "new-robot", "position": {"x": 1, "y": 2}, "bearing": bearing},
