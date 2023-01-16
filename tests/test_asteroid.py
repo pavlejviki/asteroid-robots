@@ -1,7 +1,6 @@
 import pytest
 
 from asteroid import Asteroid
-from robot import Robot, Bearing
 
 
 @pytest.fixture
