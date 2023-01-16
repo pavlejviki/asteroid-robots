@@ -85,3 +85,4 @@ class Robot:
                 self.x = self.x - 1
         else:
             self.bearing = Robot.BEARING_DIRECTIONS[self.bearing][movement]
+
