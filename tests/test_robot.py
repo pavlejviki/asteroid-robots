@@ -50,3 +50,12 @@ def test_robot_does_not_move_outside_boundaries(robot):
         robot.move(Movement.MOVE_FORWARD)
     assert robot.x == 2
     assert robot.y == 5
+
+
+@pytest.mark.parametrize("movement, expected_bearing", [
+    (Movement.TURN_RIGHT, Bearing.EAST),
+    (Movement.TURN_LEFT, Bearing.WEST),
+])
+def test_robot_turns_to_right_direction(robot, movement, expected_bearing):
+    robot.move(movement)
+    assert robot.bearing == expected_bearing

@@ -85,4 +85,3 @@ class Robot:
                 self.x = max(0, self.x - 1)
         else:
             self.bearing = Robot.BEARING_DIRECTIONS[self.bearing][movement]
-
