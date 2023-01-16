@@ -28,7 +28,5 @@ class Asteroid:
             )
         self._size_y = value
 
-    def add_robot(self):
-        pass
-
-
+    def add_robot(self, robot) -> None:
+        self.robots.append(robot)
