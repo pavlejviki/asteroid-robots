@@ -1,8 +1,15 @@
+import pytest
+
 from robot import Robot
 
 
-def test_robot_created_with_correct_initial_state():
+@pytest.fixture
+def robot():
     robot = Robot(2, 2, "north", 5, 5)
+    yield robot
+
+
+def test_robot_created_with_correct_initial_state(robot):
     assert robot.x == 2
     assert robot.y == 2
     assert robot.bearing == "north"
