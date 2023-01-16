@@ -18,5 +18,7 @@ def test_robot_created_with_correct_initial_state(robot):
 
 
 def test_value_error_raised_when_initializing_x_y_coordinate_outside_boundary():
-    with pytest.raises(ValueError, match="Invalid x coordinate for robot, must be within boundaries"):
+    with pytest.raises(
+        ValueError, match="Invalid x coordinate for robot, must be within boundaries"
+    ):
         Robot(6, 2, "north", 5, 5)
