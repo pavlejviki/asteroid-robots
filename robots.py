@@ -33,8 +33,20 @@ def execute_commands(commands: List[Dict]) -> Asteroid:
     return new_asteroid
 
 
+def generate_messages(asteroid: Asteroid) -> Generator[str, None, None]:
+    for robot in asteroid.robots:
+        robot_details = {
+            "type": "robot",
+            "position": {"x": robot.x, "y": robot.y},
+            "bearing": robot.bearing.value,
+        }
+        yield json.dumps(robot_details)
+
+
 def main(instructions: str) -> None:
     commands = read_instructions(instructions)
+    asteroid = execute_commands(commands)
+
 
 
 
