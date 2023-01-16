@@ -3,7 +3,6 @@ from robot import (
     Robot,
     Bearing,
     Movement,
-    CommandType,
 )
 
 
@@ -59,3 +58,7 @@ def test_robot_does_not_move_outside_boundaries(robot):
 def test_robot_turns_to_right_direction(robot, movement, expected_bearing):
     robot.move(movement)
     assert robot.bearing == expected_bearing
+
+
+def test_robot_str_method(robot):
+    assert str(robot) == "Robot at position (2, 2), bearing north"
