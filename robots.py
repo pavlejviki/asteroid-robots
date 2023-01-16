@@ -16,7 +16,21 @@ def read_instructions(instructions: str) -> List[Dict]:
 
 
 def execute_commands(commands: List[Dict]) -> Asteroid:
-    pass
+    new_asteroid = Asteroid(commands[0]["size"]["x"], commands[0]["size"]["y"])
+    new_robot = None
+    for command in commands[1:]:
+        if CommandType(command["type"]) == CommandType.NEW_ROBOT:
+            new_robot = Robot(
+                command["position"]["x"],
+                command["position"]["y"],
+                Bearing(command["bearing"]),
+                new_asteroid.size_x,
+                new_asteroid.size_y,
+            )
+            new_asteroid.add_robot(new_robot)
+        if CommandType(command["type"]) == CommandType.MOVE:
+            new_robot.move(Movement(command["movement"]))
+    return new_asteroid
 
 
 def main(instructions: str) -> None:
