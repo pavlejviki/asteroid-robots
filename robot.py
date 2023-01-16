@@ -90,7 +90,6 @@ class Robot:
     def y(self):
         return self._y
 
-    # TODO: check correct type annotation for return value
     @y.setter
     def y(self, value):
         if value < 0 or value > self.y_boundary:

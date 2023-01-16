@@ -1,6 +1,6 @@
 ## Show Me The Robots!
 
-A program that executes a series of JSON commands provided in a text file and outputs a series of JSON messages,  describing the final positions of the robots after all of the input commands have been executed.
+A program that executes a series of JSON commands provided in a text file and outputs a series of JSON messages,  describing the final positions of the robots after all the input commands have been executed.
 
 ### How to run
 

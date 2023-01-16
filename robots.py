@@ -1,9 +1,18 @@
 import json
 import sys
 
-from typing import List, Dict, Generator
+from typing import (
+    List,
+    Dict,
+    Generator,
+)
+from robot import (
+    Robot,
+    CommandType,
+    Bearing,
+    Movement,
+)
 from asteroid import Asteroid
-from robot import Robot, CommandType, Bearing, Movement
 
 
 def read_instructions(instructions: str) -> List[Dict]:
@@ -65,7 +74,7 @@ def print_messages(messages: Generator[str, None, None]) -> None:
 
 def main(instructions: str) -> None:
     """
-    The main function that runs the program, it takes the name of file with instructions as input
+    The main function that runs the program, it takes the name of the file with instructions as input
     and  follows this process:
     1. parse the instructions into a list of commands using read_instructions() function.
     2. execute the commands on an asteroid using execute_commands() function.
