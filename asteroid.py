@@ -30,3 +30,6 @@ class Asteroid:
 
     def add_robot(self, robot) -> None:
         self.robots.append(robot)
+
+    def __str__(self):
+        pass

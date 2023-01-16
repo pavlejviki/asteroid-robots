@@ -29,7 +29,7 @@ def test_value_error_raised_when_initializing_invalid_x_y_size_for_asteroid(
         Asteroid(x, y)
 
 
-def test_correct_amount_of_robots_added_to_asteroid(robot, asteroid):
+def test_correct_amount_of_robots_added_to_asteroid(asteroid):
     robot_1 = Robot(2, 2, Bearing.NORTH, asteroid.size_x, asteroid.size_y)
     robot_2 = Robot(3, 3, Bearing.NORTH, asteroid.size_x, asteroid.size_y)
     asteroid.add_robot(robot_1)
@@ -37,3 +37,7 @@ def test_correct_amount_of_robots_added_to_asteroid(robot, asteroid):
     assert len(asteroid.robots) == 2
     assert asteroid.robots[0] == robot_1
     assert asteroid.robots[1] == robot_2
+
+
+def test_asteroid_str_method(asteroid):
+    assert str(asteroid) == "Asteroid of size (5, 5) with 0 robots on it."
