@@ -30,10 +30,10 @@ def test_robot_created_with_correct_initial_state(robot):
         (2, 6, "Invalid y coordinate for robot, must be within boundaries"),
     ],
 )
-def test_value_error_raised_when_initializing_x_y_coordinate_outside_boundary(x, y, error_message):
-    with pytest.raises(
-        ValueError, match=error_message
-    ):
+def test_value_error_raised_when_initializing_x_y_coordinate_outside_boundary(
+    x, y, error_message
+):
+    with pytest.raises(ValueError, match=error_message):
         Robot(x, y, Bearing.NORTH, 5, 5)
 
 
@@ -51,10 +51,13 @@ def test_robot_does_not_move_outside_boundaries(robot):
     assert robot.y == 5
 
 
-@pytest.mark.parametrize("movement, expected_bearing", [
-    (Movement.TURN_RIGHT, Bearing.EAST),
-    (Movement.TURN_LEFT, Bearing.WEST),
-])
+@pytest.mark.parametrize(
+    "movement, expected_bearing",
+    [
+        (Movement.TURN_RIGHT, Bearing.EAST),
+        (Movement.TURN_LEFT, Bearing.WEST),
+    ],
+)
 def test_robot_turns_to_right_direction(robot, movement, expected_bearing):
     robot.move(movement)
     assert robot.bearing == expected_bearing

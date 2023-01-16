@@ -65,6 +65,7 @@ class Robot:
     def y(self):
         return self._y
 
+    # TODO: check correct type annotation for return value
     @y.setter
     def y(self, value):
         if value < 0 or value > self.y_boundary:
@@ -86,5 +87,5 @@ class Robot:
         else:
             self.bearing = Robot.BEARING_DIRECTIONS[self.bearing][movement]
 
-    def __str__(self):
-        pass
+    def __str__(self) -> str:
+        return f"Robot at position ({self.x}, {self.y}), bearing {self.bearing.value}"
