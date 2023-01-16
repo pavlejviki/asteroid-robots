@@ -2,6 +2,10 @@ from enum import Enum
 
 
 class Bearing(Enum):
+    """
+    An enumeration class that defines the possible bearings a robot can have.
+    """
+
     NORTH = "north"
     SOUTH = "south"
     EAST = "east"
@@ -9,18 +13,39 @@ class Bearing(Enum):
 
 
 class Movement(Enum):
+    """
+    An enumeration class that defines the possible movements a robot can make.
+    """
+
     MOVE_FORWARD = "move-forward"
     TURN_LEFT = "turn-left"
     TURN_RIGHT = "turn-right"
 
 
 class CommandType(Enum):
+    """
+    An enumeration class that defines the possible types of commands that can be executed.
+    """
+
     NEW_ASTEROID = "new-asteroid"
     NEW_ROBOT = "new-robot"
     MOVE = "move"
 
 
 class Robot:
+    """
+    A class representing a robot that can be sent to an asteroid.
+    The class has the following properties:
+    - x: the x-coordinate of the robot's position
+    - y: the y-coordinate of the robot's position
+    - bearing: the current bearing of the robot (north, south, east, or west)
+    - x_boundary: the maximum x-coordinate the robot can have
+    - y_boundary: the maximum y-coordinate the robot can have
+    The class has the following methods:
+    - move: moves the robot forward or turns it left or right
+    - __str__: returns a string representation of the robot's current position and bearing
+    """
+
     BEARING_DIRECTIONS = {
         Bearing.NORTH: {
             Movement.TURN_LEFT: Bearing.WEST,

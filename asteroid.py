@@ -1,4 +1,15 @@
 class Asteroid:
+    """
+    A class representing an asteroid that can be created.
+    The class has the following properties:
+    - size_x: the x-coordinate of the asteroid's size
+    - size_y: the y-coordinate of the asteroid's size
+    - robots: a list of robots on the asteroid
+    The class has the following methods:
+    - add_robot: adds a new robot to the asteroid
+    - __str__: returns a string representation of the asteroid's size and the number of robots on it
+    """
+
     def __init__(self, size_x: int, size_y: int) -> None:
         self.size_x = size_x
         self.size_y = size_y
@@ -21,7 +32,7 @@ class Asteroid:
         return self._size_y
 
     @size_y.setter
-    def size_y(self, value: int) -> None:
+    def size_y(self, value: int):
         if value < 0:
             raise ValueError(
                 "Invalid y coordinate for the size of the asteroid, can't be negative"

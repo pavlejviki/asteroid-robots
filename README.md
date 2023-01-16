@@ -27,7 +27,7 @@ venv\Scripts\activate  # on Windows
 ```
 pip install -r requirements.txt
 ```
-6. Add a .txt file with the required instructions to be executed:
+6. Add an instructions.txt file in the project's main directory with the required instructions to be executed:
 ### Example
 
 ```
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 ```
 7. Run the program by:
 ```
-python robots.py your_instruction_file.txt
+python robots.py instructions.txt
 ```
 
 The program will read the instructions from the provided file and execute them, then output the final state of the robots in json format to the console.
@@ -68,3 +68,11 @@ The program will read the instructions from the provided file and execute them, 
 ```
 
 Note: Make sure the instruction file is in the correct format and contains valid json data, otherwise the program may raise errors.
+
+### Tests
+
+To run tests use:
+
+```
+python -m pytest tests/
+```
