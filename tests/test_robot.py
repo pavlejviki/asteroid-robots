@@ -22,3 +22,4 @@ def test_value_error_raised_when_initializing_x_y_coordinate_outside_boundary():
         ValueError, match="Invalid x coordinate for robot, must be within boundaries"
     ):
         Robot(6, 2, "north", 5, 5)
+
