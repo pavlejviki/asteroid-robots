@@ -73,6 +73,15 @@ class Robot:
             )
         self._y = value
 
-    def move(self, movement: Movement):
-        pass
-
+    def move(self, movement: Movement) -> None:
+        if movement == Movement.MOVE_FORWARD:
+            if self.bearing == Bearing.NORTH:
+                self.y = self.y + 1
+            elif self.bearing == Bearing.SOUTH:
+                self.y = self.y - 1
+            elif self.bearing == Bearing.EAST:
+                self.x = self.x + 1
+            elif self.bearing == Bearing.WEST:
+                self.x = self.x - 1
+        else:
+            self.bearing = Robot.BEARING_DIRECTIONS[self.bearing][movement]
