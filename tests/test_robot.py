@@ -10,8 +10,7 @@ from robot import (
 @pytest.fixture
 def robot():
     robot = Robot(2, 2, Bearing.NORTH, 5, 5)
-    yield robot
-    robot.__init__(2, 2, Bearing.NORTH, 5, 5)
+    return robot
 
 
 def test_robot_created_with_correct_initial_state(robot):
@@ -46,10 +45,8 @@ def test_robot_moves_forward_correctly(robot):
     assert robot.bearing == Bearing.NORTH
 
 
-def test_robot_does_not_move_outside_boundary(robot):
+def test_robot_does_not_move_outside_boundaries(robot):
     for i in range(4):
         robot.move(Movement.MOVE_FORWARD)
-    assert robot.x == 5
+    assert robot.x == 2
     assert robot.y == 5
-
-
