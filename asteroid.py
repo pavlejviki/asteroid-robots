@@ -31,5 +31,5 @@ class Asteroid:
     def add_robot(self, robot) -> None:
         self.robots.append(robot)
 
-    def __str__(self):
-        pass
+    def __str__(self) -> str:
+        return f"Asteroid of size ({self.size_x}, {self.size_y}) with {len(self.robots)} robots on it."
