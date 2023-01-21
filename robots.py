@@ -13,7 +13,7 @@ from robot import (
 from asteroid import Asteroid
 
 
-def read_instructions(instructions: str) -> Generator[str, None, None]:
+def read_instructions(instructions: str) -> Generator[dict, None, None]:
     """
     Reads a file of instructions in JSON format, and returns a list of commands.
     Each command is represented as a dictionary.
@@ -25,7 +25,7 @@ def read_instructions(instructions: str) -> Generator[str, None, None]:
             yield command
 
 
-def execute_commands(commands) -> Asteroid:
+def execute_commands(commands: Generator[dict, None, None]) -> Asteroid:
     """
     Executes a list of commands on an asteroid and returns the final state of the asteroid.
     """
