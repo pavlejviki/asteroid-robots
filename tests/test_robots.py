@@ -1,7 +1,12 @@
 import pytest
 
 from robot import Bearing
-from robots import execute_commands
+from robots import (
+    execute_commands,
+    generate_messages,
+    print_messages,
+    read_instructions,
+)
 
 
 def test_execute_commands_fulfils_commands_correctly():
@@ -42,3 +47,16 @@ def test_execute_commands_raises_error_on_invalid_values(
     ]
     with pytest.raises(ValueError):
         execute_commands(commands)
+
+
+def test_print_messages(capsys):
+    commands = read_instructions("../instructions.txt")
+    asteroid = execute_commands(commands)
+    messages = generate_messages(asteroid)
+    print_messages(messages)
+    captured = capsys.readouterr()
+    expected_output = (
+        '{"type": "robot", "position": {"x": 1, "y": 3}, "bearing": "north"}\n{"type": "robot", '
+        '"position": {"x": 5, "y": 1}, "bearing": "east"}\n'
+    )
+    assert captured.out == expected_output

@@ -1,11 +1,9 @@
 import json
 import sys
 
-from typing import (
-    List,
-    Dict,
-    Generator,
-)
+from typing import Generator
+
+
 from robot import (
     Robot,
     CommandType,
@@ -15,28 +13,27 @@ from robot import (
 from asteroid import Asteroid
 
 
-def read_instructions(instructions: str) -> List[Dict]:
+def read_instructions(instructions: str) -> Generator[str, None, None]:
     """
     Reads a file of instructions in JSON format, and returns a list of commands.
     Each command is represented as a dictionary.
     """
 
     with open(instructions, "r") as file:
-        commands = []
         for row in file:
             command = json.loads(row)
-            commands.append(command)
-    return commands
+            yield command
 
 
-def execute_commands(commands: List[Dict]) -> Asteroid:
+def execute_commands(commands) -> Asteroid:
     """
     Executes a list of commands on an asteroid and returns the final state of the asteroid.
     """
-
-    new_asteroid = Asteroid(commands[0]["size"]["x"], commands[0]["size"]["y"])
+    new_asteroid = None
     new_robot = None
-    for command in commands[1:]:
+    for command in commands:
+        if CommandType(command["type"]) == CommandType.NEW_ASTEROID:
+            new_asteroid = Asteroid(command["size"]["x"], command["size"]["y"])
         if CommandType(command["type"]) == CommandType.NEW_ROBOT:
             new_robot = Robot(
                 command["position"]["x"],

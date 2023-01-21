@@ -28,9 +28,8 @@ venv\Scripts\activate  # on Windows
 pip install -r requirements.txt
 ```
 6. Add an instructions.txt file in the project's main directory with the required instructions to be executed:
-### Example
-
 ```
+cat > instructions.txt
 {"type": "asteroid", "size": {"x": 5, "y": 5}}
 {"type": "new-robot", "position": {"x": 1, "y": 2}, "bearing": "north"}
 {"type": "move", "movement": "turn-left"}
@@ -53,7 +52,9 @@ pip install -r requirements.txt
 {"type": "move", "movement": "turn-right"}
 {"type": "move", "movement": "turn-right"}
 {"type": "move", "movement": "move-forward"}
+ctrl + C
 ```
+
 7. Run the program by:
 ```
 python robots.py instructions.txt
@@ -63,8 +64,8 @@ The program will read the instructions from the provided file and execute them, 
 ### Output
 
 ```
-{"type": "robot", "position": {"x": 1, "y": 3}, "bearing": "north"}
-{"type": "robot", "position": {"x": 5, "y": 1}, "bearing": "east"}
+{"type": "robot", "position": {"x": 0, "y": 2}, "bearing": "west"}
+{"type": "robot", "position": {"x": 5, "y": 3}, "bearing": "east"}
 ```
 
 Note: Make sure the instruction file is in the correct format and contains valid json data, otherwise the program may raise errors.

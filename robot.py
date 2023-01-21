@@ -27,7 +27,7 @@ class CommandType(Enum):
     An enumeration class that defines the possible types of commands that can be executed.
     """
 
-    NEW_ASTEROID = "new-asteroid"
+    NEW_ASTEROID = "asteroid"
     NEW_ROBOT = "new-robot"
     MOVE = "move"
 
@@ -101,15 +101,15 @@ class Robot:
     def move(self, movement: Movement) -> None:
         if movement == Movement.MOVE_FORWARD:
             if self.bearing == Bearing.NORTH:
-                self.y = min(self.y_boundary, self.y + 1)
+                self.y += 1
             elif self.bearing == Bearing.SOUTH:
-                self.y = max(0, self.y - 1)
+                self.y -= 1
             elif self.bearing == Bearing.EAST:
-                self.x = min(self.x_boundary, self.x + 1)
+                self.x += 1
             elif self.bearing == Bearing.WEST:
-                self.x = max(0, self.x - 1)
+                self.x -= 1
         else:
             self.bearing = Robot.BEARING_DIRECTIONS[self.bearing][movement]
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"Robot at position ({self.x}, {self.y}), bearing {self.bearing.value}"
